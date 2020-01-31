@@ -1,4 +1,6 @@
 const path = require("path");
+const UglifyPlugin = require("uglifyjs-webpack-plugin");
+
 module.exports = {
   entry: path.join(__dirname + "/app.js"),
 
@@ -6,6 +8,10 @@ module.exports = {
     path: path.join(__dirname + "/"),
     filename: "bundle.js",
     publicPath: "/"
+  },
+
+  optimization: {
+    minimizer: [new UglifyPlugin()]
   },
 
   module: {
